@@ -409,6 +409,9 @@ class input_adapter
     input_adapter(const ContiguousContainer& c)
         : input_adapter(std::begin(c), std::end(c)) {}
 
+    input_adapter(input_adapter_t existing_adapter)
+        : ia(std::move(existing_adapter)) {}
+
     operator input_adapter_t()
     {
         return ia;
